@@ -82,7 +82,7 @@
 
         <div id="alert" class="hidden text-red-700 mb-4 font-medium p-3 bg-red-100 border border-red-300 rounded w-full max-w-4xl text-sm"></div>
 
-        <div id="chatContainer" class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full max-w-6xl">
+        <div id="chatContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-full max-w-7xl">
             </div>
 
     </main>
@@ -135,6 +135,21 @@
                 "url": "#"
               }
             ]
+          },
+          "agent": {
+            "text": "**Fotosynteza** to proces, w którym rośliny przekształcają światło słoneczne w energię chemiczną. Składa się z dwóch głównych etapów: reakcji świetlnych (w tylakoidach chloroplastów) i cyklu Calvina (w stromie). Produktami są glukoza i tlen.",
+            "tokens": 68,
+            "latencyMs": 1200,
+            "costUsd": 0.00095,
+            "agentTrace": [
+              {"type": "plan", "content": "Podzielę zadanie na kroki: 1) Zdefiniuj proces, 2) Znajdź szczegóły naukowe, 3) Podsumuj kluczowe etapy"},
+              {"type": "toolcall", "content": "search_knowledge_base(\"fotosynteza definicja\")"},
+              {"type": "result", "content": "Znaleziono: Fotosynteza to proces konwersji energii świetlnej w chemiczną..."},
+              {"type": "toolcall", "content": "search_knowledge_base(\"etapy fotosyntezy\")"},
+              {"type": "result", "content": "Znaleziono: Reakcje świetlne i cykl Calvina to dwa główne etapy..."},
+              {"type": "reflection", "content": "Mam definicję i etapy. Mogę teraz sformułować kompletną odpowiedź ze szczegółami."},
+              {"type": "final", "content": "Syntezuję informacje w spójną odpowiedź o fotosyntezie."}
+            ]
           }
         },
         {
@@ -177,6 +192,21 @@
                 "url": "#"
               }
             ]
+          },
+          "agent": {
+            "text": "**Porównanie EV vs benzynowe:**\n**Zalety EV:** niższe koszty eksploatacji, zero emisji spalin, ciche.\n**Wady EV:** droższe w zakupie, ograniczony zasięg, ładowanie zajmuje czas.\n**Zalety benzynowe:** tańsze, szybkie tankowanie, lepsza infrastruktura.\n**Wady benzynowe:** emisje CO2, wyższe koszty paliwa długoterminowo.\nWybór zależy od budżetu i stylu życia.",
+            "tokens": 82,
+            "latencyMs": 1350,
+            "costUsd": 0.00110,
+            "agentTrace": [
+              {"type": "plan", "content": "Utworzę systematyczne porównanie: 1) Zbierz dane EV, 2) Zbierz dane benzynowe, 3) Kategoryzuj zalety/wady, 4) Podsumuj"},
+              {"type": "toolcall", "content": "analyze_vehicle_data(\"electric_cars\", categories=[\"cost\", \"environment\", \"performance\"])"},
+              {"type": "result", "content": "EV: niskie koszty eksploatacji, zero emisji, wysoka cena zakupu, ograniczony zasięg"},
+              {"type": "toolcall", "content": "analyze_vehicle_data(\"gasoline_cars\", categories=[\"cost\", \"environment\", \"performance\"])"},
+              {"type": "result", "content": "Benzynowe: niskie koszty zakupu, szybkie tankowanie, emisje CO2, wyższe koszty paliwa"},
+              {"type": "reflection", "content": "Zebrano dane z obu stron. Teraz mogę uporządkować w zalety/wady i przedstawić zrównoważone porównanie."},
+              {"type": "final", "content": "Formuję strukturalne porównanie z kategoriami zalety/wady dla każdego typu."}
+            ]
           }
         },
          {
@@ -218,6 +248,21 @@
                 "snippet": "Wersja 3 Wytycznych pracy zdalnej, szczegółowo opisująca wymagania dotyczące miejsca pracy, protokoły bezpieczeństwa i oczekiwania komunikacyjne...",
                 "url": "#"
               }
+            ]
+          },
+          "agent": {
+            "text": "**Polityka pracy zdalnej firmy:**\nPracownicy pełnoetatowi mogą pracować zdalnie po uzyskaniu zgody menedżera. Wymagania: dedykowane miejsce pracy, bezpieczne połączenie internetowe, dostępność w godzinach 10:00-16:00. Stanowiska muszą być odpowiednie do pracy zdalnej (lista w HRManual-Sec4.B). Lokalizacja: tylko zatwierdzone kraje/stany.",
+            "tokens": 72,
+            "latencyMs": 1100,
+            "costUsd": 0.00088,
+            "agentTrace": [
+              {"type": "plan", "content": "Zbuduję odpowiedź w krokach: 1) Znajdź oficjalną politykę, 2) Wyodrębnij kluczowe wymagania, 3) Sformatuj czytelnie"},
+              {"type": "toolcall", "content": "fetch_document(\"HRManual-Sec4.B\")"},
+              {"type": "result", "content": "Znaleziono: Sekcja 4.B opisuje kwalifikacje (zgoda menedżera, odpowiednie stanowisko)..."},
+              {"type": "toolcall", "content": "fetch_document(\"RemoteGuide-v3\")"},
+              {"type": "result", "content": "Znaleziono: Wytyczne określają wymagania techniczne i godziny dostępności..."},
+              {"type": "reflection", "content": "Mam pełne informacje z obu dokumentów. Mogę teraz utworzyć zwięzłe podsumowanie zasad."},
+              {"type": "final", "content": "Konsoliduję informacje w strukturalną odpowiedź z jasnymi wymaganiami."}
             ]
           }
         }
@@ -264,6 +309,13 @@
                 color: 'bg-blue-50',
                 iconSvg: `<svg class="inline-icon w-5 h-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6" /></svg>`,
                 description: 'Najpierw wyszukuje informacje ze zdefiniowanej bazy wiedzy.'
+            },
+            {
+                key: 'agent',
+                label: 'Chat Agent',
+                color: 'bg-orange-50',
+                iconSvg: `<svg class="inline-icon w-5 h-5 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" /></svg>`,
+                description: 'Wykorzystuje narzędzia i przechodzi przez etapy: plan, akcja, refleksja.'
             }
         ];
 
@@ -346,6 +398,9 @@
                     if (mode === 'rag' && answerData.citations) {
                         addCitations(outputContainer.parentNode, answerData.citations);
                     }
+                    if (mode === 'agent' && answerData.agentTrace) {
+                        addAgentTrace(outputContainer.parentNode, answerData.agentTrace);
+                    }
 
                     // Trigger MathJax typesetting if available
                     if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
@@ -407,6 +462,44 @@
             });
              // Insert the citation section before the metrics div
             container.insertBefore(citationDiv, container.querySelector('[data-metrics]'));
+        }
+
+        // --- Function to Add Agent Trace Section ---
+        function addAgentTrace(container, trace) {
+            // Remove existing agent trace section first
+            const existingTrace = container.querySelector('.agent-trace-section');
+            if (existingTrace) existingTrace.remove();
+
+            // Create details/summary element for accordion effect
+            const details = document.createElement('details');
+            details.className = 'agent-trace-section mt-3 text-sm border-t border-orange-200 pt-2 bg-orange-50 p-3 rounded';
+            // Summary text with an icon
+            details.innerHTML = '<summary class="font-medium text-orange-800 cursor-pointer text-base mb-1 flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.24-.438.613-.43.992a6.759 6.759 0 0 1 0 1.903c.008.378.137.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.6 6.6 0 0 1-.22.128c-.332.183-.582.495-.644.869l-.213 1.28c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.759 6.759 0 0 1 0-1.903c-.007-.378-.137-.75-.43-.99l-1.004-.828a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582.495.644-.869l.214-1.28Z" /></svg>Ślad wykonania agenta</summary>';
+
+            // Create list for the steps
+            const list = document.createElement('div');
+            list.className = 'space-y-2 mt-2';
+
+            // Define icons and labels for each step type
+            const typeConfig = {
+                'plan': { icon: '📋', label: 'Plan', color: 'text-orange-900 bg-orange-100', border: 'border-orange-300' },
+                'toolcall': { icon: '🔧', label: 'Wywołanie narzędzia', color: 'text-blue-900 bg-blue-100', border: 'border-blue-300' },
+                'result': { icon: '✓', label: 'Wynik', color: 'text-green-900 bg-green-100', border: 'border-green-300' },
+                'reflection': { icon: '💭', label: 'Refleksja', color: 'text-purple-900 bg-purple-100', border: 'border-purple-300' },
+                'final': { icon: '🎯', label: 'Finalizacja', color: 'text-red-900 bg-red-100', border: 'border-red-300' }
+            };
+
+            trace.forEach(step => {
+                const config = typeConfig[step.type] || { icon: '•', label: step.type, color: 'text-gray-900 bg-gray-100', border: 'border-gray-300' };
+                const stepDiv = document.createElement('div');
+                stepDiv.className = `p-2 rounded border ${config.border} ${config.color}`;
+                stepDiv.innerHTML = `<div class="font-semibold text-xs mb-1">${config.icon} ${config.label}</div><div class="text-xs">${step.content}</div>`;
+                list.appendChild(stepDiv);
+            });
+
+            details.appendChild(list);
+            // Insert the agent trace section before the metrics div
+            container.insertBefore(details, container.querySelector('[data-metrics]'));
         }
 
 
