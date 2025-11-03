@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot Paradigm Simulator</title>
+    <title>Symulator Paradygmatów Chatbotów</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         // Configure MathJax
@@ -53,9 +53,9 @@
 
     <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-md sticky top-0 z-10">
         <div class="container mx-auto px-4 py-4">
-            <h1 class="text-3xl font-bold">Chatbot Paradigm Simulator</h1>
+            <h1 class="text-3xl font-bold">Symulator Paradygmatów Chatbotów</h1>
             <p class="text-indigo-100 mt-1 text-sm">
-                Explore how different chatbot approaches tackle the same prompt.
+                Odkryj, jak różne podejścia chatbotów radzą sobie z tym samym zapytaniem.
             </p>
         </div>
     </header>
@@ -63,19 +63,19 @@
     <main class="container mx-auto p-4 md:p-6 lg:p-8 flex flex-col items-center">
 
         <p class="text-center text-gray-600 mb-6 max-w-3xl">
-            Compare a standard Large Language Model (LLM), one using internal reasoning, and one using Retrieval-Augmented Generation (RAG) accessing a defined knowledge base (e.g., internal docs).
+            Porównaj standardowy Duży Model Językowy (LLM), model wykorzystujący wewnętrzne rozumowanie oraz model używający Generowania Wspomaganego Wyszukiwaniem (RAG) z dostępem do określonej bazy wiedzy (np. dokumenty wewnętrzne).
         </p>
 
         <div class="w-full max-w-4xl flex flex-col gap-2 mb-6 bg-white p-5 rounded-lg shadow-md border border-gray-200">
-            <label for="promptSelect" class="text-sm font-medium text-gray-700">Select a Sample Prompt:</label>
+            <label for="promptSelect" class="text-sm font-medium text-gray-700">Wybierz przykładowe zapytanie:</label>
             <select id="promptSelect" class="p-2 rounded border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-150 ease-in-out"></select>
             <div class="flex flex-col sm:flex-row gap-2 mt-2">
-                <input id="promptInput" class="flex-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-150 ease-in-out" placeholder="Or type your own question...">
+                <input id="promptInput" class="flex-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-150 ease-in-out" placeholder="Lub wpisz własne pytanie...">
                 <button id="sendBtn" class="bg-blue-600 text-white px-6 py-2 rounded font-semibold hover:bg-blue-700 active:bg-blue-800 transition-colors duration-200 shadow-sm flex items-center justify-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                     </svg>
-                    Send
+                    Wyślij
                 </button>
             </div>
         </div>
@@ -89,7 +89,7 @@
 
     <footer class="bg-gray-800 text-gray-300 text-center p-4 mt-8 shadow-inner">
         <div class="container mx-auto text-sm">
-            &copy; 2024 Chatbot Simulator. All rights reserved.
+            &copy; 2024 Symulator Chatbotów. Wszelkie prawa zastrzeżone.
         </div>
     </footer>
 
@@ -97,125 +97,125 @@
     {
       "questions": [
         {
-          "prompt": "Explain photosynthesis",
+          "prompt": "Wyjaśnij proces fotosyntezy",
           "llm": {
-            "text": "Photosynthesis is the biological process where plants, algae, and some bacteria convert light energy, water, and CO2 into glucose (food) and oxygen. It's crucial for life.",
+            "text": "Fotosynteza to proces biologiczny, w którym rośliny, glony i niektóre bakterie przekształcają energię świetlną, wodę i CO2 w glukozę (pokarm) oraz tlen. Jest kluczowa dla życia.",
             "tokens": 30,
             "latencyMs": 400,
             "costUsd": 0.00030
           },
           "reasoning": {
-            "text": "To explain photosynthesis logically:\nIt has two core stages.\n1.  **Light-Dependent Reactions:** Capture solar energy using chlorophyll, producing ATP and NADPH.\n2.  **Calvin Cycle:** Uses this ATP and NADPH to convert CO2 into sugars (glucose).\nThis sequence transforms light energy into chemical energy.",
+            "text": "Aby logicznie wyjaśnić fotosyntezę:\nSkłada się z dwóch głównych etapów.\n1.  **Reakcje świetlne:** Przechwytują energię słoneczną za pomocą chlorofilu, produkując ATP i NADPH.\n2.  **Cykl Calvina:** Wykorzystuje ATP i NADPH do przekształcenia CO2 w cukry (glukozę).\nTa sekwencja przekształca energię świetlną w energię chemiczną.",
             "tokens": 55,
             "latencyMs": 600,
             "costUsd": 0.00055,
             "reasoningTrace": [
-              "Goal: Explain Photosynthesis",
-              "Breakdown: Identify key components (inputs, process, outputs)",
-              "Process Detail: Divide into major stages (Light Reactions, Calvin Cycle)",
-              "Stage 1 Summary: Light energy -> Chemical carriers (ATP, NADPH)",
-              "Stage 2 Summary: Chemical carriers + CO2 -> Sugars",
-              "Synthesize: Combine stage summaries into a coherent explanation of energy conversion."
+              "Cel: Wyjaśnić fotosyntezę",
+              "Podział: Zidentyfikować kluczowe komponenty (wejścia, proces, wyjścia)",
+              "Szczegóły procesu: Podzielić na główne etapy (Reakcje świetlne, Cykl Calvina)",
+              "Podsumowanie etapu 1: Energia świetlna -> Nośniki chemiczne (ATP, NADPH)",
+              "Podsumowanie etapu 2: Nośniki chemiczne + CO2 -> Cukry",
+              "Synteza: Połączyć podsumowania etapów w spójne wyjaśnienie przekształcenia energii."
             ]
           },
           "rag": {
-            "text": "Consulting the internal Biology Knowledge Base:\nPhotosynthesis occurs in chloroplasts [Doc Ref: BioKB-123]. The process follows the equation $6CO_2 + 6H_2O \\xrightarrow{Light} C_6H_{12}O_6 + 6O_2$ [Doc Ref: SciencePrimer-Chap4]. It's fundamental for ecosystem energy flow.",
+            "text": "Sprawdzam wewnętrzną bazę wiedzy biologicznej:\nFotosynteza zachodzi w chloroplastach [Ref. dok.: BioKB-123]. Proces przebiega według równania $6CO_2 + 6H_2O \\xrightarrow{Światło} C_6H_{12}O_6 + 6O_2$ [Ref. dok.: SciencePrimer-Chap4]. Jest fundamentalna dla przepływu energii w ekosystemie.",
             "tokens": 48,
             "latencyMs": 780,
             "costUsd": 0.00070,
             "citations": [
               {
-                "title": "Internal Doc: BioKB-123",
-                "snippet": "Section on cellular organelles describes chloroplast function in photosynthesis...",
+                "title": "Dokument wewnętrzny: BioKB-123",
+                "snippet": "Sekcja dotycząca organelli komórkowych opisuje funkcję chloroplastów w fotosyntezie...",
                 "url": "#"
               },
                {
-                "title": "Internal Doc: SciencePrimer-Chap4",
-                "snippet": "Chapter 4 details the chemical equation and energy conversion principles...",
+                "title": "Dokument wewnętrzny: SciencePrimer-Chap4",
+                "snippet": "Rozdział 4 szczegółowo opisuje równanie chemiczne i zasady przekształcania energii...",
                 "url": "#"
               }
             ]
           }
         },
         {
-          "prompt": "Compare the pros and cons of electric cars vs. gasoline cars.",
+          "prompt": "Porównaj zalety i wady samochodów elektrycznych i samochodów benzynowych.",
           "llm": {
-            "text": "EVs generally have lower running costs and zero tailpipe emissions but higher purchase prices and range limitations. Gas cars are cheaper initially and refuel faster with more infrastructure, but have emissions and higher fuel costs.",
+            "text": "Pojazdy elektryczne mają zazwyczaj niższe koszty eksploatacji i zerowe emisje spalin, ale wyższe ceny zakupu i ograniczony zasięg. Samochody benzynowe są tańsze w zakupie i tankują szybciej przy większej infrastrukturze, ale mają emisje i wyższe koszty paliwa.",
             "tokens": 46,
             "latencyMs": 480,
             "costUsd": 0.00046
           },
           "reasoning": {
-            "text": "Systematic Comparison:\n1.  **Cost:** EVs higher upfront, lower running (fuel/maintenance). Gas cars opposite.\n2.  **Environment:** EVs zero tailpipe emissions (but battery production impact). Gas cars have direct emissions.\n3.  **Performance/Convenience:** EVs quiet, quick acceleration. Gas cars longer range, faster refueling.\n4.  **Infrastructure:** Gas refueling widespread. EV charging growing but less available.\n**Conclusion:** Choice depends on budget, driving needs, environmental priorities, and local infrastructure.",
+            "text": "Systematyczne porównanie:\n1.  **Koszt:** EV wyższe koszty początkowe, niższe eksploatacyjne (paliwo/utrzymanie). Samochody benzynowe odwrotnie.\n2.  **Środowisko:** EV zerowe emisje spalin (ale wpływ produkcji baterii). Samochody benzynowe mają bezpośrednie emisje.\n3.  **Wydajność/Wygoda:** EV ciche, szybkie przyspieszenie. Samochody benzynowe większy zasięg, szybsze tankowanie.\n4.  **Infrastruktura:** Tankowanie benzyny powszechne. Ładowanie EV rośnie, ale mniej dostępne.\n**Wniosek:** Wybór zależy od budżetu, potrzeb transportowych, priorytetów ekologicznych i lokalnej infrastruktury.",
             "tokens": 85,
             "latencyMs": 700,
             "costUsd": 0.00080,
             "reasoningTrace": [
-              "Goal: Compare EVs vs. Gas Cars",
-              "Method: Pros & Cons Analysis",
-              "Define Categories: Cost (Purchase, Running), Environment, Performance/Convenience, Infrastructure",
-              "Analyze EVs: List pros/cons per category",
-              "Analyze Gas Cars: List pros/cons per category",
-              "Structure Output: Present findings category by category",
-              "Synthesize: Add concluding statement summarizing the trade-offs."
+              "Cel: Porównać pojazdy EV i benzynowe",
+              "Metoda: Analiza zalet i wad",
+              "Zdefiniuj kategorie: Koszt (Zakup, Eksploatacja), Środowisko, Wydajność/Wygoda, Infrastruktura",
+              "Analizuj EV: Wymień zalety/wady w każdej kategorii",
+              "Analizuj samochody benzynowe: Wymień zalety/wady w każdej kategorii",
+              "Uporządkuj wyniki: Prezentuj odkrycia kategoria po kategorii",
+              "Synteza: Dodaj podsumowanie uwzględniające kompromisy."
             ]
           },
           "rag": {
-            "text": "Accessing internal market & tech reports:\nEVs show lower TCO over 5 years in our analysis [Doc: MktAnalys-Q1]. Tailpipe emissions are zero, but battery lifecycle assessment is key [Doc: TechAssess-EV7]. Gas cars retain advantage in refueling speed and initial cost, though fuel price volatility is a risk [Doc: MktAnalys-Q1].",
+            "text": "Dostęp do wewnętrznych raportów rynkowych i technicznych:\nEV wykazują niższy TCO w ciągu 5 lat według naszej analizy [Dok: MktAnalys-Q1]. Emisje spalin są zerowe, ale kluczowa jest ocena cyklu życia baterii [Dok: TechAssess-EV7]. Samochody benzynowe zachowują przewagę w szybkości tankowania i początkowym koszcie, choć zmienność cen paliwa jest ryzykiem [Dok: MktAnalys-Q1].",
             "tokens": 68,
             "latencyMs": 820,
             "costUsd": 0.00080,
             "citations": [
               {
-                "title": "Internal Doc: MktAnalys-Q1",
-                "snippet": "Q1 Market Analysis comparing Total Cost of Ownership (TCO) for EV and ICE vehicles...",
+                "title": "Dokument wewnętrzny: MktAnalys-Q1",
+                "snippet": "Analiza rynku Q1 porównująca całkowity koszt posiadania (TCO) pojazdów EV i spalinowych...",
                 "url": "#"
               },
               {
-                "title": "Internal Doc: TechAssess-EV7",
-                "snippet": "Technology Assessment document covering EV battery lifecycle emissions and recycling...",
+                "title": "Dokument wewnętrzny: TechAssess-EV7",
+                "snippet": "Dokument oceny technologicznej obejmujący emisje w cyklu życia baterii EV i recykling...",
                 "url": "#"
               }
             ]
           }
         },
          {
-          "prompt": "What is the company policy on remote work?",
+          "prompt": "Jaka jest polityka firmy dotycząca pracy zdalnej?",
           "llm": {
-            "text": "Company remote work policies typically outline eligibility criteria, expectations for communication and performance, requirements for home office setups, and any location restrictions. You should usually consult the official HR handbook or policy documents for specifics.",
+            "text": "Polityka pracy zdalnej w firmach zazwyczaj określa kryteria kwalifikacji, oczekiwania dotyczące komunikacji i wydajności, wymagania dotyczące domowego biura oraz ograniczenia lokalizacji. Należy zazwyczaj zapoznać się z oficjalnym podręcznikiem HR lub dokumentami polityki w celu uzyskania szczegółów.",
             "tokens": 43,
             "latencyMs": 450,
             "costUsd": 0.00043
           },
           "reasoning": {
-            "text": "To determine the remote work policy:\n1.  **Identify Scope:** Policy applies to full-time employees.\n2.  **Eligibility:** Requires manager approval & role suitability (defined list).\n3.  **Requirements:** Must maintain core hours (10am-4pm local), secure internet, dedicated workspace.\n4.  **Location:** Must reside within approved countries/states.\n**Summary:** Eligible employees can work remotely with manager approval, subject to specific role, setup, and location requirements.",
+            "text": "Aby określić politykę pracy zdalnej:\n1.  **Zakres:** Polityka dotyczy pracowników pełnoetatowych.\n2.  **Kwalifikacje:** Wymaga zgody menedżera i odpowiedniości stanowiska (zdefiniowana lista).\n3.  **Wymagania:** Należy zachować podstawowe godziny pracy (10:00-16:00 czasu lokalnego), bezpieczny internet, dedykowane miejsce pracy.\n4.  **Lokalizacja:** Należy przebywać w zatwierdzonych krajach/stanach.\n**Podsumowanie:** Uprawnieni pracownicy mogą pracować zdalnie za zgodą menedżera, z zastrzeżeniem określonego stanowiska, konfiguracji i wymagań lokalizacyjnych.",
             "tokens": 75,
             "latencyMs": 680,
             "costUsd": 0.00070,
             "reasoningTrace": [
-              "Goal: Determine Company Remote Work Policy",
-              "Information Source: Assume access to internal HR rules/logic.",
-              "Step 1: Define who the policy applies to (e.g., employee types).",
-              "Step 2: Determine eligibility criteria (e.g., role type, manager approval).",
-              "Step 3: Identify operational requirements (e.g., hours, equipment, connectivity).",
-              "Step 4: Check for constraints (e.g., geographical limitations).",
-              "Step 5: Synthesize findings into a structured policy summary."
+              "Cel: Określić politykę pracy zdalnej firmy",
+              "Źródło informacji: Zakładaj dostęp do wewnętrznych zasad/logiki HR.",
+              "Krok 1: Określ, do kogo odnosi się polityka (np. typy pracowników).",
+              "Krok 2: Określ kryteria kwalifikacji (np. typ stanowiska, zgoda menedżera).",
+              "Krok 3: Zidentyfikuj wymagania operacyjne (np. godziny, sprzęt, łączność).",
+              "Krok 4: Sprawdź ograniczenia (np. ograniczenia geograficzne).",
+              "Krok 5: Zsyntetyzuj odkrycia w uporządkowane podsumowanie polityki."
             ]
           },
           "rag": {
-            "text": "Checking the official HR documents:\nThe Remote Work Policy [Doc: HRManual-Sec4.B] states eligibility requires manager approval and role suitability. Employees must maintain a designated workspace and adhere to security protocols outlined in [Doc: RemoteGuide-v3]. Full details are in the HR Manual.",
+            "text": "Sprawdzam oficjalne dokumenty HR:\nPolityka pracy zdalnej [Dok: HRManual-Sec4.B] stwierdza, że kwalifikacja wymaga zgody menedżera i odpowiedniości stanowiska. Pracownicy muszą utrzymywać wyznaczone miejsce pracy i przestrzegać protokołów bezpieczeństwa określonych w [Dok: RemoteGuide-v3]. Pełne szczegóły znajdują się w Podręczniku HR.",
             "tokens": 55,
             "latencyMs": 750,
             "costUsd": 0.00075,
             "citations": [
               {
-                "title": "Internal Doc: HRManual-Sec4.B",
-                "snippet": "Section 4.B: Remote Work Policy, including eligibility, application process, and manager responsibilities...",
+                "title": "Dokument wewnętrzny: HRManual-Sec4.B",
+                "snippet": "Sekcja 4.B: Polityka pracy zdalnej, w tym kwalifikacje, proces składania wniosków i obowiązki menedżera...",
                 "url": "#"
               },
               {
-                "title": "Internal Doc: RemoteGuide-v3",
-                "snippet": "Version 3 of the Remote Work Guidelines, detailing workspace requirements, security protocols, and communication expectations...",
+                "title": "Dokument wewnętrzny: RemoteGuide-v3",
+                "snippet": "Wersja 3 Wytycznych pracy zdalnej, szczegółowo opisująca wymagania dotyczące miejsca pracy, protokoły bezpieczeństwa i oczekiwania komunikacyjne...",
                 "url": "#"
               }
             ]
@@ -223,7 +223,7 @@
         }
       ],
       "defaultAnswer": {
-        "text": "I don't have specific simulated data for that prompt. Please select one of the sample prompts to see the comparison.",
+        "text": "Nie mam konkretnych symulowanych danych dla tego zapytania. Proszę wybrać jedno z przykładowych zapytań, aby zobaczyć porównanie.",
         "tokens": 21,
         "latencyMs": 300,
         "costUsd": 0.00015
@@ -246,24 +246,24 @@
         const paradigms = [
             {
                 key: 'llm',
-                label: 'LLM Chat',
+                label: 'Chat LLM',
                 color: 'bg-white', // Background color class
                 iconSvg: `<svg class="inline-icon w-5 h-5 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V8.25a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 8.25v10.5A2.25 2.25 0 0 0 6.75 21H9" /></svg>`,
-                description: 'Generates text directly from its vast training data.'
+                description: 'Generuje tekst bezpośrednio z obszernych danych treningowych.'
             },
             {
                 key: 'reasoning',
-                label: 'Reasoning Chat',
+                label: 'Chat z rozumowaniem',
                 color: 'bg-green-50',
                 iconSvg: `<svg class="inline-icon w-5 h-5 text-green-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.24-.438.613-.43.992a6.759 6.759 0 0 1 0 1.903c.008.378.137.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.6 6.6 0 0 1-.22.128c-.332.183-.582.495-.644.869l-.213 1.28c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.759 6.759 0 0 1 0-1.903c-.007-.378-.137-.75-.43-.99l-1.004-.828a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582.495.644-.869l.214-1.28Z" /></svg>`,
-                description: 'Uses internal logical steps or planning before answering.'
+                description: 'Wykorzystuje wewnętrzne kroki logiczne lub planowanie przed odpowiedzią.'
             },
             {
                 key: 'rag',
-                label: 'RAG Chat',
+                label: 'Chat RAG',
                 color: 'bg-blue-50',
                 iconSvg: `<svg class="inline-icon w-5 h-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6" /></svg>`,
-                description: 'Retrieves info from a defined knowledge base first.'
+                description: 'Najpierw wyszukuje informacje ze zdefiniowanej bazy wiedzy.'
             }
         ];
 
@@ -273,7 +273,7 @@
             promptSelect.innerHTML = '';
             // Create and add a placeholder option
             const placeholderOption = document.createElement('option');
-            placeholderOption.textContent = '-- Select a Sample Prompt --';
+            placeholderOption.textContent = '-- Wybierz przykładowe zapytanie --';
             placeholderOption.value = ""; // Empty value for placeholder
             placeholderOption.disabled = true;
             placeholderOption.selected = true;
@@ -368,7 +368,7 @@
             const details = document.createElement('details');
             details.className = 'reasoning-details mt-3 text-sm border-t border-green-200 pt-2 bg-green-50 p-3 rounded'; // Styling
             // Summary text with an icon
-            details.innerHTML = '<summary class="font-medium text-green-800 cursor-pointer text-base mb-1 flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>Reasoning Steps</summary>';
+            details.innerHTML = '<summary class="font-medium text-green-800 cursor-pointer text-base mb-1 flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>Kroki rozumowania</summary>';
             // Create ordered list for the steps
             const list = document.createElement('ol');
             list.className = 'list-decimal list-inside text-green-900 mt-1 space-y-1 pl-2';
@@ -394,7 +394,7 @@
             // Title with an icon
             const title = document.createElement('h4');
             title.className = 'font-medium text-blue-800 mb-2 text-sm flex items-center gap-1';
-            title.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>References';
+            title.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>Bibliografia';
             citationDiv.appendChild(title);
 
             // Add each citation as a paragraph
@@ -413,7 +413,7 @@
         // --- Function to Render Metrics ---
         function renderMetrics(metricsContainer, answerData) {
             // Display tokens, latency, and estimated cost
-            metricsContainer.textContent = `Tokens: ${answerData.tokens} | Latency: ${answerData.latencyMs} ms | Est. Cost: $${answerData.costUsd.toFixed(5)}`;
+            metricsContainer.textContent = `Tokeny: ${answerData.tokens} | Opóźnienie: ${answerData.latencyMs} ms | Szac. koszt: $${answerData.costUsd.toFixed(5)}`;
         }
 
         // --- Main Function to Handle Sending Prompt ---
@@ -422,7 +422,7 @@
             const promptText = promptInput.value.trim();
             // Check if prompt is empty
             if (!promptText) {
-                alertBox.textContent = 'Please enter a prompt or select a sample.';
+                alertBox.textContent = 'Proszę wprowadzić zapytanie lub wybrać przykład.';
                 alertBox.classList.remove('hidden'); // Show alert
                 // Ensure alert is red for error
                 alertBox.classList.remove('bg-yellow-100', 'text-yellow-800', 'border-yellow-300');
@@ -446,7 +446,7 @@
 
             // Show informational alert if using the default answer set
             if (usingDefault) {
-                alertBox.textContent = 'Prompt not found in samples - showing default response simulation.';
+                alertBox.textContent = 'Zapytanie nie znalezione w przykładach - pokazuję domyślną symulację odpowiedzi.';
                 alertBox.classList.remove('hidden');
                 // Style alert as informational (yellow)
                 alertBox.classList.remove('bg-red-100', 'text-red-700', 'border-red-300');
