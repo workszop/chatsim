@@ -137,18 +137,22 @@
             ]
           },
           "agent": {
-            "text": "**Fotosynteza** to proces, w którym rośliny przekształcają światło słoneczne w energię chemiczną. Składa się z dwóch głównych etapów: reakcji świetlnych (w tylakoidach chloroplastów) i cyklu Calvina (w stromie). Produktami są glukoza i tlen.",
-            "tokens": 68,
-            "latencyMs": 1200,
-            "costUsd": 0.00095,
+            "text": "**Fotosynteza - Kompleksowe wyjaśnienie:**\nFotosynteza to dwuetapowy proces biochemiczny zachodzący w chloroplastach:\n\n**1. Reakcje świetlne (tylakoidy):** Chlorofil pochłania fotony światła (głównie 680nm i 700nm), co inicjuje fotolizę wody. Powstaje ATP, NADPH i O₂.\n\n**2. Cykl Calvina (stroma):** Energia z ATP i NADPH służy do wiązania CO₂ w cyklu C3, tworząc glukozę ($C_6H_{12}O_6$).\n\n**Równanie sumaryczne:** $6CO_2 + 6H_2O \\xrightarrow{Światło} C_6H_{12}O_6 + 6O_2$\n\n**Efektywność:** ~3-6% energii słonecznej konwertowane na energię chemiczną. Wydajność zależy od intensywności światła, temperatury i dostępności CO₂.",
+            "tokens": 142,
+            "latencyMs": 1850,
+            "costUsd": 0.00155,
             "agentTrace": [
-              {"type": "plan", "content": "Podzielę zadanie na kroki: 1) Zdefiniuj proces, 2) Znajdź szczegóły naukowe, 3) Podsumuj kluczowe etapy"},
-              {"type": "toolcall", "content": "search_knowledge_base(\"fotosynteza definicja\")"},
-              {"type": "result", "content": "Znaleziono: Fotosynteza to proces konwersji energii świetlnej w chemiczną..."},
-              {"type": "toolcall", "content": "search_knowledge_base(\"etapy fotosyntezy\")"},
-              {"type": "result", "content": "Znaleziono: Reakcje świetlne i cykl Calvina to dwa główne etapy..."},
-              {"type": "reflection", "content": "Mam definicję i etapy. Mogę teraz sformułować kompletną odpowiedź ze szczegółami."},
-              {"type": "final", "content": "Syntezuję informacje w spójną odpowiedź o fotosyntezie."}
+              {"type": "plan", "content": "Strategia: 1) Pobierz definicję z bazy wiedzy, 2) Weryfikuj równanie chemiczne, 3) Znajdź szczegóły etapów, 4) Oblicz efektywność, 5) Zsyntetyzuj kompletną odpowiedź"},
+              {"type": "toolcall", "content": "search_knowledge_base(query=\"fotosynteza definicja proces\", sources=[\"BioKB-123\", \"SciencePrimer\"])"},
+              {"type": "result", "content": "Znaleziono 3 dokumenty: Fotosynteza to proces konwersji energii świetlnej w chemiczną, zachodzi w chloroplastach..."},
+              {"type": "toolcall", "content": "formula_validator(formula=\"6CO2 + 6H2O -> C6H12O6 + 6O2\", check_balance=true)"},
+              {"type": "result", "content": "Równanie zbilansowane ✓. Atomy: C:6→6, H:12→12, O:18→18"},
+              {"type": "toolcall", "content": "search_knowledge_base(query=\"reakcje świetlne vs cykl Calvina\", depth=\"detailed\")"},
+              {"type": "result", "content": "Reakcje świetlne w tylakoidach: fotosystemy I i II, fotoliza wody, produkcja ATP/NADPH. Cykl Calvina w stromie: fiksacja CO₂, cykl C3"},
+              {"type": "toolcall", "content": "calculate_efficiency(input_energy=\"solar\", output_energy=\"chemical_glucose\", process=\"photosynthesis\")"},
+              {"type": "result", "content": "Efektywność fotosyntezy: 3-6% w warunkach optymalnych, zależy od PAR (Photosynthetically Active Radiation)"},
+              {"type": "reflection", "content": "Zebrałem: definicję, zweryfikowane równanie, szczegóły obu etapów i dane o efektywności. Mam kompletny obraz naukowy. RAG podał tylko podstawy - ja dostarczam głębszą analizę z weryfikacją i obliczeniami."},
+              {"type": "final", "content": "Tworzę szczegółową odpowiedź łączącą biochemię, równania i dane ilościowe, przewyższającą podstawowe informacje z RAG."}
             ]
           }
         },
@@ -194,18 +198,26 @@
             ]
           },
           "agent": {
-            "text": "**Porównanie EV vs benzynowe:**\n**Zalety EV:** niższe koszty eksploatacji, zero emisji spalin, ciche.\n**Wady EV:** droższe w zakupie, ograniczony zasięg, ładowanie zajmuje czas.\n**Zalety benzynowe:** tańsze, szybkie tankowanie, lepsza infrastruktura.\n**Wady benzynowe:** emisje CO2, wyższe koszty paliwa długoterminowo.\nWybór zależy od budżetu i stylu życia.",
-            "tokens": 82,
-            "latencyMs": 1350,
-            "costUsd": 0.00110,
+            "text": "**Szczegółowa analiza porównawcza EV vs Benzynowe:**\n\n**📊 TCO (Total Cost of Ownership) - 5 lat:**\n• EV: 165k PLN (zakup: 150k, energia: 15k)\n• Benzynowe: 178k PLN (zakup: 90k, paliwo: 75k, serwis: 13k)\n**Oszczędność EV: 13k PLN (7,3%)**\n\n**🌍 Emisje CO₂ (5 lat, 100k km):**\n• EV: 8,4 tony (mix energetyczny PL)\n• Benzynowe: 18,2 tony\n**Redukcja: 54% mniej emisji**\n\n**⚡ Wydajność:**\n• EV: ~85-90% efektywności energetycznej\n• Benzynowe: ~20-30% efektywności\n\n**🔋 Zasięg i ładowanie:**\n• EV: 350-500km, ładowanie 30-60min (DC)\n• Benzynowe: 600-800km, tankowanie 5min\n\n**Rekomendacja:** EV opłacalne dla >15k km/rok w mieście. Benzynowe dla częstych długich tras.",
+            "tokens": 186,
+            "latencyMs": 2100,
+            "costUsd": 0.00195,
             "agentTrace": [
-              {"type": "plan", "content": "Utworzę systematyczne porównanie: 1) Zbierz dane EV, 2) Zbierz dane benzynowe, 3) Kategoryzuj zalety/wady, 4) Podsumuj"},
-              {"type": "toolcall", "content": "analyze_vehicle_data(\"electric_cars\", categories=[\"cost\", \"environment\", \"performance\"])"},
-              {"type": "result", "content": "EV: niskie koszty eksploatacji, zero emisji, wysoka cena zakupu, ograniczony zasięg"},
-              {"type": "toolcall", "content": "analyze_vehicle_data(\"gasoline_cars\", categories=[\"cost\", \"environment\", \"performance\"])"},
-              {"type": "result", "content": "Benzynowe: niskie koszty zakupu, szybkie tankowanie, emisje CO2, wyższe koszty paliwa"},
-              {"type": "reflection", "content": "Zebrano dane z obu stron. Teraz mogę uporządkować w zalety/wady i przedstawić zrównoważone porównanie."},
-              {"type": "final", "content": "Formuję strukturalne porównanie z kategoriami zalety/wady dla każdego typu."}
+              {"type": "plan", "content": "Kompleksowa analiza: 1) Pobierz dane rynkowe, 2) Oblicz TCO na 5 lat, 3) Porównaj emisje CO₂, 4) Analizuj wydajność, 5) Weryfikuj dane, 6) Stwórz macierz porównawczą, 7) Wygeneruj rekomendacje"},
+              {"type": "toolcall", "content": "fetch_market_data(vehicle_type=\"EV\", market=\"Poland\", data=[\"avg_price\", \"energy_cost\", \"maintenance\"])"},
+              {"type": "result", "content": "EV PL 2024: Średnia cena 150k PLN, koszt energii 0.75 PLN/kWh, serwis -40% vs benzynowe"},
+              {"type": "toolcall", "content": "fetch_market_data(vehicle_type=\"ICE\", market=\"Poland\", data=[\"avg_price\", \"fuel_cost\", \"maintenance\"])"},
+              {"type": "result", "content": "Benzynowe PL 2024: Średnia cena 90k PLN, paliwo 6.5 PLN/l, serwis standardowy"},
+              {"type": "toolcall", "content": "calculate_tco(ev_data={price:150k, energy:15kWh/100km, cost:0.75}, ice_data={price:90k, fuel:7l/100km, cost:6.5}, years=5, km_per_year=20000)"},
+              {"type": "result", "content": "TCO 5 lat/100k km: EV=165k PLN, ICE=178k PLN. Delta: -13k PLN (7.3% oszczędności)"},
+              {"type": "toolcall", "content": "emission_calculator(ev_kwh_per_km=0.15, ice_l_per_km=0.07, km=100000, grid_mix=\"Poland\")"},
+              {"type": "result", "content": "Emisje 100k km: EV=8.4t CO₂ (wliczając produkcję energii PL), ICE=18.2t CO₂. Redukcja: 54%"},
+              {"type": "toolcall", "content": "efficiency_analyzer(ev_motor_eff=0.9, ice_engine_eff=0.25)"},
+              {"type": "result", "content": "Efektywność: EV 85-90% (strata na ładowanie/rozładowanie), ICE 20-30% (ciepło, tarcie)"},
+              {"type": "toolcall", "content": "validate_calculations(tco_delta=-13000, emission_reduction=0.54, check_sources=true)"},
+              {"type": "result", "content": "Walidacja ✓: Obliczenia zgodne z MktAnalys-Q1 i TechAssess-EV7. Źródła zweryfikowane."},
+              {"type": "reflection", "content": "Przeprowadziłem kompleksową analizę z 6 narzędziami: pobrałem aktualne dane rynkowe PL, obliczyłem TCO, emisje i efektywność, zweryfikowałem wyniki. RAG podał tylko ogólne stwierdzenia - ja dostarczam konkretne liczby i ROI."},
+              {"type": "final", "content": "Tworzę rekomendację opartą na danych: TCO, emisjach i profilu użytkowania. Odpowiedź przewyższa RAG analizą ilościową i kontekstem lokalnym (PL)."}
             ]
           }
         },
@@ -251,18 +263,26 @@
             ]
           },
           "agent": {
-            "text": "**Polityka pracy zdalnej firmy:**\nPracownicy pełnoetatowi mogą pracować zdalnie po uzyskaniu zgody menedżera. Wymagania: dedykowane miejsce pracy, bezpieczne połączenie internetowe, dostępność w godzinach 10:00-16:00. Stanowiska muszą być odpowiednie do pracy zdalnej (lista w HRManual-Sec4.B). Lokalizacja: tylko zatwierdzone kraje/stany.",
-            "tokens": 72,
-            "latencyMs": 1100,
-            "costUsd": 0.00088,
+            "text": "**Kompletna Polityka Pracy Zdalnej - Analiza dokumentów HR:**\n\n**✅ Kwalifikacje (HRManual-Sec4.B §2.1):**\n• Pracownicy pełnoetatowi z min. 6 mies. stażem\n• Stanowiska kwalifikowane: IT, Marketing, Finanse, HR (88% zespołu)\n• Wymagana zgoda bezpośredniego przełożonego\n• Pozytywna ocena roczna (min. \"spełnia oczekiwania\")\n\n**🔧 Wymagania techniczne (RemoteGuide-v3 §3):**\n• Internet: min. 50 Mbps download, 10 Mbps upload\n• Sprzęt: laptop firmowy + monitor (dostarczone przez IT)\n• VPN: obowiązkowe połączenie przez Cisco AnyConnect\n• Backup: hotspot mobilny jako zabezpieczenie\n\n**⏰ Godziny pracy:**\n• Core hours: 10:00-16:00 (strefa CET) - obowiązkowa dostępność\n• Flextime: pozostałe 2h w oknie 7:00-20:00\n• Overlap z zespołem: min. 6h dziennie\n\n**🌍 Lokalizacja (Compliance §4.2):**\n• Dozwolone: PL, DE, NL, CZ (weryfikacja podatkowa)\n• Wymaga zgody Legal: pozostałe kraje UE\n• Zakazane: spoza UE (RODO, compliance)\n\n**📋 Proces wnioskowania:**\n1. Formularz WFH-01 → Manager (3 dni)\n2. Akceptacja → IT setup (5 dni)\n3. Training bezpieczeństwa (2h online)\n4. Trial period: 3 miesiące\n\n**Status: 67% zespołu pracuje zdalnie (dane Q4 2024)**",
+            "tokens": 248,
+            "latencyMs": 2350,
+            "costUsd": 0.00260,
             "agentTrace": [
-              {"type": "plan", "content": "Zbuduję odpowiedź w krokach: 1) Znajdź oficjalną politykę, 2) Wyodrębnij kluczowe wymagania, 3) Sformatuj czytelnie"},
-              {"type": "toolcall", "content": "fetch_document(\"HRManual-Sec4.B\")"},
-              {"type": "result", "content": "Znaleziono: Sekcja 4.B opisuje kwalifikacje (zgoda menedżera, odpowiednie stanowisko)..."},
-              {"type": "toolcall", "content": "fetch_document(\"RemoteGuide-v3\")"},
-              {"type": "result", "content": "Znaleziono: Wytyczne określają wymagania techniczne i godziny dostępności..."},
-              {"type": "reflection", "content": "Mam pełne informacje z obu dokumentów. Mogę teraz utworzyć zwięzłe podsumowanie zasad."},
-              {"type": "final", "content": "Konsoliduję informacje w strukturalną odpowiedź z jasnymi wymaganiami."}
+              {"type": "plan", "content": "Kompleksowa analiza dokumentów HR: 1) Parsuj HRManual-Sec4.B, 2) Parsuj RemoteGuide-v3, 3) Cross-reference z Compliance, 4) Wyodrębnij kluczowe §, 5) Sprawdź aktualność, 6) Dodaj statystyki, 7) Weryfikuj spójność polityk"},
+              {"type": "toolcall", "content": "document_parser(doc_id=\"HRManual-Sec4.B\", extract=[\"eligibility\", \"process\", \"requirements\"], version=\"latest\")"},
+              {"type": "result", "content": "HRManual-Sec4.B v2.3 (2024-09): Kwalifikacje §2.1: pełny etat, 6 mies. staż, zgoda managera, pozytywna ocena. Stanowiska: IT, Marketing, Finanse, HR"},
+              {"type": "toolcall", "content": "document_parser(doc_id=\"RemoteGuide-v3\", extract=[\"technical_req\", \"core_hours\", \"equipment\"], version=\"latest\")"},
+              {"type": "result", "content": "RemoteGuide-v3 §3: Internet 50/10 Mbps, VPN Cisco, laptop+monitor firmowy, core hours 10-16 CET, backup hotspot"},
+              {"type": "toolcall", "content": "cross_reference_check(docs=[\"HRManual-Sec4.B\", \"RemoteGuide-v3\", \"CompliancePolicy\"], field=\"location_restrictions\")"},
+              {"type": "result", "content": "Compliance §4.2: Dozwolone PL,DE,NL,CZ bez dodatkowej zgody. Pozostałe UE: zgoda Legal. Spoza UE: zakazane (RODO)"},
+              {"type": "toolcall", "content": "extract_process_flow(doc=\"HRManual-Sec4.B\", section=\"application\")"},
+              {"type": "result", "content": "Proces: WFH-01 form → Manager approval (3d) → IT setup (5d) → Security training (2h) → Trial 3m"},
+              {"type": "toolcall", "content": "get_statistics(metric=\"remote_work_adoption\", timeframe=\"Q4_2024\", department=\"all\")"},
+              {"type": "result", "content": "Statystyki Q4 2024: 67% pracowników pracuje zdalnie (pełny/hybrydowy), wzrost o 12% r/r"},
+              {"type": "toolcall", "content": "policy_validator(policies=[\"HRManual-Sec4.B\", \"RemoteGuide-v3\"], check_conflicts=true, check_outdated=true)"},
+              {"type": "result", "content": "Walidacja ✓: Brak konfliktów między politykami. Wszystkie dokumenty aktualne (ostatnia rewizja: 09.2024)"},
+              {"type": "reflection", "content": "Przeanalizowałem 3 dokumenty używając 6 narzędzi: sparsowałem kluczowe sekcje, sprawdziłem cross-reference dla lokalizacji, wydobyłem proces aplikacji, dodałem aktualne statystyki i zwalidowałem spójność. RAG podał tylko ogólne info - ja dostarczam konkretne paragrafy, wymagania techniczne, proces i dane ilościowe."},
+              {"type": "final", "content": "Tworzę strukturalną odpowiedź z referencjami do konkretnych §, pełnym procesem wnioskowania i kontekstem statystycznym - przewyższa RAG głębokością i praktycznymi szczegółami."}
             ]
           }
         }
