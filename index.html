@@ -99,100 +99,121 @@
         {
           "prompt": "Wyjaśnij proces fotosyntezy",
           "llm": {
-            "text": "Fotosynteza to proces biologiczny, w którym rośliny, glony i niektóre bakterie przekształcają energię świetlną, wodę i CO2 w glukozę (pokarm) oraz tlen. Jest kluczowa dla życia.",
-            "tokens": 30,
-            "latencyMs": 400,
-            "costUsd": 0.00030
+            "text": "Fotosynteza to proces, w którym rośliny wykorzystują światło słoneczne do produkcji pokarmu. Rośliny pobierają dwutlenek węgla z powietrza i wodę z gleby, a następnie przekształcają je w cukry, które są źródłem energii. W tym procesie wydziela się tlen jako produkt uboczny.",
+            "tokens": 35,
+            "latencyMs": 380,
+            "costUsd": 0.00035
           },
           "reasoning": {
-            "text": "Aby logicznie wyjaśnić fotosyntezę:\nSkłada się z dwóch głównych etapów.\n1.  **Reakcje świetlne:** Przechwytują energię słoneczną za pomocą chlorofilu, produkując ATP i NADPH.\n2.  **Cykl Calvina:** Wykorzystuje ATP i NADPH do przekształcenia CO2 w cukry (glukozę).\nTa sekwencja przekształca energię świetlną w energię chemiczną.",
-            "tokens": 55,
-            "latencyMs": 600,
-            "costUsd": 0.00055,
+            "text": "Analizując fotosyntezę systematycznie:\n**Wejścia procesu:** światło słoneczne, H₂O, CO₂\n**Lokalizacja:** chloroplasty w komórkach roślinnych\n**Etap 1 - Reakcje świetlne (tylakoidy):**\n- Chlorofil pochłania fotony światła\n- Fotoliza wody uwalnia elektrony i O₂\n- Tworzą się nośniki energii: ATP i NADPH\n**Etap 2 - Cykl Calvina (stroma):**\n- ATP i NADPH dostarczają energii\n- CO₂ jest fiksowany i redukowany\n- Powstaje glukoza (C₆H₁₂O₆)\n**Wynik:** energia świetlna → energia chemiczna w cukrach",
+            "tokens": 72,
+            "latencyMs": 650,
+            "costUsd": 0.00072,
             "reasoningTrace": [
-              "Cel: Wyjaśnić fotosyntezę",
-              "Podział: Zidentyfikować kluczowe komponenty (wejścia, proces, wyjścia)",
-              "Szczegóły procesu: Podzielić na główne etapy (Reakcje świetlne, Cykl Calvina)",
-              "Podsumowanie etapu 1: Energia świetlna -> Nośniki chemiczne (ATP, NADPH)",
-              "Podsumowanie etapu 2: Nośniki chemiczne + CO2 -> Cukry",
-              "Synteza: Połączyć podsumowania etapów w spójne wyjaśnienie przekształcenia energii."
+              "Cel: Wyjaśnić fotosyntezę krok po kroku",
+              "Krok 1: Zidentyfikować substancje wejściowe (światło, H₂O, CO₂) i wyjściowe (glukoza, O₂)",
+              "Krok 2: Określić lokalizację procesu (chloroplasty: tylakoidy i stroma)",
+              "Krok 3: Rozłożyć proces na dwa główne etapy według lokalizacji",
+              "Krok 4: Etap świetlny - światło rozszczepią wodę, powstają ATP i NADPH jako nośniki energii",
+              "Krok 5: Cykl Calvina - ATP i NADPH wykorzystywane do przekształcenia CO₂ w glukozę",
+              "Krok 6: Zsyntetyzować logiczny przepływ: światło → nośniki energii → synteza cukrów"
             ]
           },
           "rag": {
-            "text": "Sprawdzam wewnętrzną bazę wiedzy biologicznej:\nFotosynteza zachodzi w chloroplastach [Ref. dok.: BioKB-123]. Proces przebiega według równania $6CO_2 + 6H_2O \\xrightarrow{Światło} C_6H_{12}O_6 + 6O_2$ [Ref. dok.: SciencePrimer-Chap4]. Jest fundamentalna dla przepływu energii w ekosystemie.",
-            "tokens": 48,
-            "latencyMs": 780,
-            "costUsd": 0.00070,
+            "text": "Wyszukuję informacje w bazie wiedzy...\n\n**Znaleziono 3 dokumenty:**\n\nWedług [BioKB-123], fotosynteza zachodzi w **chloroplastach** - organellach zawierających chlorofil. Proces składa się z reakcji świetlnych w tylakoidach i cyklu Calvina w stromie.\n\n[SciencePrimer-Chap4] podaje równanie: $6CO_2 + 6H_2O \\xrightarrow{Światło} C_6H_{12}O_6 + 6O_2$\n\n[PlantPhysiology-v2] wskazuje, że efektywność konwersji energii świetlnej wynosi 3-6% w warunkach optymalnych.",
+            "tokens": 58,
+            "latencyMs": 820,
+            "costUsd": 0.00075,
             "citations": [
               {
-                "title": "Dokument wewnętrzny: BioKB-123",
-                "snippet": "Sekcja dotycząca organelli komórkowych opisuje funkcję chloroplastów w fotosyntezie...",
+                "title": "Dokument wewnętrzny: BioKB-123 (Biologia Komórkowa)",
+                "snippet": "...chloroplasty to organelle zawierające chlorofil, w których zachodzi fotosynteza. Składają się z tylakoidów (reakcje świetlne) i stromy (cykl Calvina)...",
                 "url": "#"
               },
                {
                 "title": "Dokument wewnętrzny: SciencePrimer-Chap4",
-                "snippet": "Rozdział 4 szczegółowo opisuje równanie chemiczne i zasady przekształcania energii...",
+                "snippet": "...równanie fotosyntezy: 6CO₂ + 6H₂O + energia świetlna → C₆H₁₂O₆ + 6O₂. Proces ten jest podstawą życia na Ziemi...",
+                "url": "#"
+              },
+              {
+                "title": "Dokument wewnętrzny: PlantPhysiology-v2",
+                "snippet": "...efektywność fotosyntetyczna wynosi średnio 3-6% w optymalnych warunkach (PAR, temperatura, CO₂). Reszta energii jest tracona jako ciepło...",
                 "url": "#"
               }
             ]
           },
           "agent": {
-            "text": "Fotosynteza to proces konwersji energii świetlnej w chemiczną, zachodzący w chloroplastach. Składa się z dwóch etapów: **reakcji świetlnych** (produkcja ATP i NADPH) oraz **cyklu Calvina** (synteza glukozy z CO₂). Równanie: $6CO_2 + 6H_2O \\xrightarrow{Światło} C_6H_{12}O_6 + 6O_2$. Efektywność energetyczna wynosi 3-6% w optymalnych warunkach.",
-            "tokens": 142,
-            "latencyMs": 1850,
-            "costUsd": 0.00155,
+            "text": "Po kompleksowej analizie z użyciem narzędzi:\n\nFotosynteza to proces w chloroplastach, składający się z dwóch etapów:\n**1) Reakcje świetlne** (tylakoidy): absorpcja fotonów 680-700nm przez chlorofil a i b → fotoliza H₂O → produkcja ATP i NADPH → uwolnienie O₂\n**2) Cykl Calvina** (stroma): fiksacja CO₂ przez RuBisCO → redukcja z wykorzystaniem ATP/NADPH → synteza C₆H₁₂O₆\n\n**Równanie zwalidowane chemicznie:** $6CO_2 + 6H_2O \\xrightarrow{Światło} C_6H_{12}O_6 + 6O_2$ ✓\n\n**Wydajność:** 3-6% (obliczona dla PAR 400-700nm, temp. 25°C, CO₂ 400ppm)",
+            "tokens": 158,
+            "latencyMs": 1950,
+            "costUsd": 0.00165,
             "agentTrace": [
-              {"type": "plan", "content": "Strategia: 1) Pobierz definicję z bazy wiedzy, 2) Weryfikuj równanie chemiczne, 3) Znajdź szczegóły etapów, 4) Oblicz efektywność, 5) Zsyntetyzuj kompletną odpowiedź"},
-              {"type": "toolcall", "content": "search_knowledge_base(query=\"fotosynteza definicja proces\", sources=[\"BioKB-123\", \"SciencePrimer\"])"},
-              {"type": "result", "content": "Znaleziono 3 dokumenty: Fotosynteza to proces konwersji energii świetlnej w chemiczną, zachodzi w chloroplastach. Etapy: reakcje świetlne i cykl Calvina."},
-              {"type": "toolcall", "content": "formula_validator(formula=\"6CO2 + 6H2O -> C6H12O6 + 6O2\", check_balance=true)"},
-              {"type": "result", "content": "Równanie zbilansowane ✓. Atomy: C:6→6, H:12→12, O:18→18. Równanie poprawne chemicznie."},
-              {"type": "toolcall", "content": "search_knowledge_base(query=\"reakcje świetlne cykl Calvina szczegóły\", depth=\"detailed\")"},
-              {"type": "result", "content": "Reakcje świetlne (tylakoidy): Chlorofil pochłania fotony 680nm i 700nm, fotoliza wody, produkcja ATP i NADPH. Cykl Calvina (stroma): Fiksacja CO₂, synteza glukozy przy użyciu ATP i NADPH."},
-              {"type": "toolcall", "content": "calculate_efficiency(input_energy=\"solar\", output_energy=\"chemical_glucose\", process=\"photosynthesis\")"},
-              {"type": "result", "content": "Efektywność fotosyntezy: 3-6% w warunkach optymalnych. Zależy od intensywności PAR (Photosynthetically Active Radiation), temperatury i dostępności CO₂."},
-              {"type": "reflection", "content": "Zebrałem kompletne dane: zweryfikowaną definicję z wielu źródeł, zbilansowane równanie chemiczne, szczegółowe opisy obu etapów biochemicznych i obliczoną efektywność energetyczną. W przeciwieństwie do RAG, który tylko cytuje dokumenty, wykonałem walidację równania i obliczenia efektywności."},
-              {"type": "final", "content": "Syntetyzuję zwięzłą odpowiedź zawierającą: proces, etapy, równanie chemiczne i efektywność - wszystko zweryfikowane i obliczone, nie tylko zacytowane."}
+              {"type": "plan", "content": "Strategia: 1) Przeszukaj bazę wiedzy dla podstaw, 2) Waliduj równanie chemiczne (bilans atomów), 3) Pobierz szczegóły mechanizmów obu etapów, 4) Oblicz efektywność dla standardowych warunków, 5) Zsyntetyzuj zweryfikowaną odpowiedź"},
+              {"type": "toolcall", "content": "search_knowledge_base(query=\"fotosynteza chloroplasty mechanizm\", sources=[\"BioKB-123\", \"SciencePrimer\", \"PlantPhysiology\"], depth=\"comprehensive\")"},
+              {"type": "result", "content": "Znaleziono 5 dokumentów: Fotosynteza w chloroplastach. Dwa główne etapy: reakcje świetlne w tylakoidach (fotosystemy I i II) i cykl Calvina w stromie (fiksacja CO₂ przez enzym RuBisCO)."},
+              {"type": "toolcall", "content": "chemistry_validator(equation=\"6CO2 + 6H2O -> C6H12O6 + 6O2\", check_balance=true, check_charge=true)"},
+              {"type": "result", "content": "✓ Równanie zbilansowane. Atomy: C(6→6), H(12→12), O(18→18). Bilans ładunku: neutralny. Delta G°: +2870 kJ/mol (endergoniczny - wymaga energii świetlnej)."},
+              {"type": "toolcall", "content": "search_knowledge_base(query=\"reakcje świetlne fotosystemy wavelength ATP NADPH\", depth=\"detailed\")"},
+              {"type": "result", "content": "Reakcje świetlne: Fotosystem II (P680, λ=680nm) - fotoliza wody, Fotosystem I (P700, λ=700nm) - redukcja NADP+. Chlorofil a/b absorpcja: 430-450nm i 640-700nm. Produkty: ATP (fotofosforylacja), NADPH, O₂."},
+              {"type": "toolcall", "content": "search_knowledge_base(query=\"cykl Calvina RuBisCO fiksacja CO2 etapy\", depth=\"detailed\")"},
+              {"type": "result", "content": "Cykl Calvina (3 fazy): 1) Fiksacja - RuBisCO wiąże CO₂ z RuBP, 2) Redukcja - wykorzystanie ATP i NADPH, 3) Regeneracja RuBP. Na 6 cykli: 6CO₂ → 1 glukoza (C₆H₁₂O₆)."},
+              {"type": "toolcall", "content": "efficiency_calculator(input_photon_energy=\"PAR_400_700nm\", output_glucose_energy=\"C6H12O6\", temperature=25, co2_ppm=400, calculate_theoretical_max=true)"},
+              {"type": "result", "content": "Efektywność fotosyntetyczna: Teoretyczna max: 11%, Rzeczywista: 3-6% (C3 plants w warunkach optymalnych: PAR 400-700nm, 25°C, 400ppm CO₂). Straty: odbicie (8%), transmisja (10%), ciepło (76-80%)."},
+              {"type": "toolcall", "content": "cross_validate(sources=[\"BioKB-123\", \"SciencePrimer-Chap4\", \"PlantPhysiology-v2\"], fields=[\"equation\", \"efficiency\", \"mechanism\"])"},
+              {"type": "result", "content": "✓ Cross-validation sukces. Równanie: 3/3 źródła zgodne, Efektywność: 3-6% potwierdzona w 2/3 źródłach, Mechanizm: opis spójny we wszystkich źródłach."},
+              {"type": "reflection", "content": "Wykonałem kompleksową analizę używając 6 narzędzi: przeszukałem bazę wiedzy (5 dokumentów), zwalidowałem chemicznie równanie z bilansem atomów i energii (ΔG°), wyekstrahowałem szczegóły mechanizmów obu etapów ze spektrum absorpcji chlorofilu, obliczyłem rzeczywistą efektywność dla określonych warunków, oraz skrzyżowałem dane z 3 źródeł dla weryfikacji. W przeciwieństwie do RAG który tylko cytuje, dostarczam zweryfikowanych danych z obliczeniami i walidacją chemiczną."},
+              {"type": "final", "content": "Syntetyzuję odpowiedź: szczegółowy mechanizm obu etapów z długościami fal i enzymami, równanie chemicznie zwalidowane z ΔG°, efektywność obliczona dla konkretnych warunków - wszystko cross-validated z wieloma źródłami."}
             ]
           }
         },
         {
           "prompt": "Porównaj zalety i wady samochodów elektrycznych i samochodów benzynowych.",
           "llm": {
-            "text": "Pojazdy elektryczne mają zazwyczaj niższe koszty eksploatacji i zerowe emisje spalin, ale wyższe ceny zakupu i ograniczony zasięg. Samochody benzynowe są tańsze w zakupie i tankują szybciej przy większej infrastrukturze, ale mają emisje i wyższe koszty paliwa.",
-            "tokens": 46,
-            "latencyMs": 480,
-            "costUsd": 0.00046
+            "text": "Samochody elektryczne są bardziej ekologiczne, ponieważ nie emitują spalin i są cichsze. Koszty eksploatacji są niższe dzięki tańszej energii elektrycznej i mniejszej ilości serwisów. Jednak są droższe w zakupie i mają ograniczony zasięg.\n\nSamochody benzynowe są tańsze, mają większy zasięg i szybsze tankowanie. Infrastruktura stacji benzynowych jest bardziej rozbudowana. Z drugiej strony paliwo jest droższe i pojazdy generują emisje CO₂.",
+            "tokens": 52,
+            "latencyMs": 450,
+            "costUsd": 0.00052
           },
           "reasoning": {
-            "text": "Systematyczne porównanie:\n1.  **Koszt:** EV wyższe koszty początkowe, niższe eksploatacyjne (paliwo/utrzymanie). Samochody benzynowe odwrotnie.\n2.  **Środowisko:** EV zerowe emisje spalin (ale wpływ produkcji baterii). Samochody benzynowe mają bezpośrednie emisje.\n3.  **Wydajność/Wygoda:** EV ciche, szybkie przyspieszenie. Samochody benzynowe większy zasięg, szybsze tankowanie.\n4.  **Infrastruktura:** Tankowanie benzyny powszechne. Ładowanie EV rośnie, ale mniej dostępne.\n**Wniosek:** Wybór zależy od budżetu, potrzeb transportowych, priorytetów ekologicznych i lokalnej infrastruktury.",
-            "tokens": 85,
-            "latencyMs": 700,
-            "costUsd": 0.00080,
+            "text": "Analizując porównanie metodycznie w 4 wymiarach:\n\n**1. Ekonomia:**\n- EV: wysoka cena zakupu vs niskie koszty energii (~4x tańsze niż benzyna) i serwisu (brak oleju, filtrów, układu wydechowego)\n- Benzynowe: niska cena zakupu vs wysokie koszty paliwa i częstsze serwisy\n- Punkt równowagi: przy większym przebiegu (~15k+ km/rok) EV stają się opłacalne\n\n**2. Aspekt środowiskowy:**\n- EV: zerowe lokalne emisje, ale ślad węglowy zależy od źródła energii (węgiel vs OZE)\n- Benzynowe: bezpośrednie emisje CO₂ i NOx przy spalaniu\n- Baterie EV: wpływ produkcji i utylizacji do rozważenia\n\n**3. Użytkowanie:**\n- EV: zasięg 300-500km, ładowanie 30min-8h, niski hałas, natychmiastowy moment obrotowy\n- Benzynowe: zasięg 600-900km, tankowanie 5min, większa dostępność stacji\n\n**4. Infrastruktura:**\n- Sieć stacji benzynowych: dojrzała i gęsta\n- Ładowarki EV: rosnąca, ale wciąż ograniczona dostępność ładowarek szybkich\n\n**Konkluzja:** Wybór powinien bazować na profilu użytkowania (dystans, częstotliwość), dostępie do ładowania i budżecie długoterminowym.",
+            "tokens": 145,
+            "latencyMs": 820,
+            "costUsd": 0.00145,
             "reasoningTrace": [
-              "Cel: Porównać pojazdy EV i benzynowe",
-              "Metoda: Analiza zalet i wad",
-              "Zdefiniuj kategorie: Koszt (Zakup, Eksploatacja), Środowisko, Wydajność/Wygoda, Infrastruktura",
-              "Analizuj EV: Wymień zalety/wady w każdej kategorii",
-              "Analizuj samochody benzynowe: Wymień zalety/wady w każdej kategorii",
-              "Uporządkuj wyniki: Prezentuj odkrycia kategoria po kategorii",
-              "Synteza: Dodaj podsumowanie uwzględniające kompromisy."
+              "Cel: Kompleksowe porównanie EV vs benzynowe - zidentyfikować kluczowe wymiary decyzyjne",
+              "Krok 1: Zdefiniować kategorie porównania - Ekonomia, Środowisko, Użytkowanie, Infrastruktura",
+              "Krok 2: Ekonomia - porównać koszty zakupu vs eksploatacji, zidentyfikować punkt równowagi (TCO)",
+              "Krok 3: Środowisko - rozróżnić lokalne emisje vs całościowy ślad węglowy (well-to-wheel)",
+              "Krok 4: Użytkowanie - porównać parametry praktyczne: zasięg, czas ładowania/tankowania, komfort",
+              "Krok 5: Infrastruktura - ocenić dostępność i gęstość sieci ładowania vs tankowania",
+              "Krok 6: Synteza - połączyć wszystkie wymiary, wskazać, że decyzja zależy od profilu użytkownika",
+              "Krok 7: Dodać nuanse - punkt równowagi ekonomicznej, zależność śladu CO₂ od źródła energii"
             ]
           },
           "rag": {
-            "text": "Dostęp do wewnętrznych raportów rynkowych i technicznych:\nEV wykazują niższy TCO w ciągu 5 lat według naszej analizy [Dok: MktAnalys-Q1]. Emisje spalin są zerowe, ale kluczowa jest ocena cyklu życia baterii [Dok: TechAssess-EV7]. Samochody benzynowe zachowują przewagę w szybkości tankowania i początkowym koszcie, choć zmienność cen paliwa jest ryzykiem [Dok: MktAnalys-Q1].",
-            "tokens": 68,
-            "latencyMs": 820,
-            "costUsd": 0.00080,
+            "text": "Wyszukuję w bazie raportów rynkowych i technicznych...\n\n**Znaleziono 4 dokumenty:**\n\nWedług [MktAnalys-Q1-2024], **TCO dla EV jest o 8-12% niższy** w okresie 5 lat przy przebiegu powyżej 15 000 km/rok. Główne oszczędności: energia elektryczna (0.65 PLN/100km vs 45 PLN/100km benzyna) i serwis.\n\n[TechAssess-EV7] wskazuje na **54% redukcję emisji CO₂** dla EV vs benzynowe w cyklu życia pojazdu, uwzględniając polski mix energetyczny (70% węgiel).\n\n[InfraReport-2024] potwierdza, że **infrastruktura ładowania w Polsce wzrosła o 47%** w 2023 r., ale nadal jest 5x mniej punktów ładowania niż stacji benzynowych.\n\n[UserSurvey-2024] pokazuje główne obawy użytkowników EV: zasięg (68%), czas ładowania (52%), cena zakupu (71%).",
+            "tokens": 98,
+            "latencyMs": 880,
+            "costUsd": 0.00098,
             "citations": [
               {
-                "title": "Dokument wewnętrzny: MktAnalys-Q1",
-                "snippet": "Analiza rynku Q1 porównująca całkowity koszt posiadania (TCO) pojazdów EV i spalinowych...",
+                "title": "Dokument wewnętrzny: MktAnalys-Q1-2024 (Analiza Rynku Automotive)",
+                "snippet": "...Całkowity koszt posiadania (TCO) dla pojazdów elektrycznych w Polsce jest o 8-12% niższy w okresie 5 lat w porównaniu do benzynowych przy rocznym przebiegu >15k km. Koszty energii: EV 0.65 PLN vs benzynowe 45 PLN na 100km...",
                 "url": "#"
               },
               {
-                "title": "Dokument wewnętrzny: TechAssess-EV7",
-                "snippet": "Dokument oceny technologicznej obejmujący emisje w cyklu życia baterii EV i recykling...",
+                "title": "Dokument wewnętrzny: TechAssess-EV7 (Ocena Technologiczna EV)",
+                "snippet": "...Analiza cyklu życia (LCA) pokazuje 54% redukcję emisji CO₂ dla EV vs pojazdy benzynowe w polskim kontekście. Uwzględnia mix energetyczny (70% węgiel), produkcję baterii, oraz recykling. Emisje: EV 8.4t vs benzynowe 18.2t CO₂ na 100k km...",
+                "url": "#"
+              },
+              {
+                "title": "Dokument wewnętrzny: InfraReport-2024 (Infrastruktura Ładowania)",
+                "snippet": "...Infrastruktura ładowania w Polsce: 6,800 publicznych punktów ładowania (wzrost 47% r/r). Stacje benzynowe: 7,200. Ładowarki szybkie DC (>50kW): tylko 12% wszystkich punktów. Gęstość: 1 ładowarka na 5,600 mieszkańców...",
+                "url": "#"
+              },
+              {
+                "title": "Dokument wewnętrzny: UserSurvey-2024 (Badanie Użytkowników)",
+                "snippet": "...Ankieta 2,400 potencjalnych nabywców EV. Główne obawy: cena zakupu (71%), zasięg (68%), czas ładowania (52%), deprecjacja wartości (43%). Pozytywne: koszty eksploatacji (89%), ekologia (76%), komfort jazdy (82%)...",
                 "url": "#"
               }
             ]
@@ -224,40 +245,46 @@
          {
           "prompt": "Jaka jest polityka firmy dotycząca pracy zdalnej?",
           "llm": {
-            "text": "Polityka pracy zdalnej w firmach zazwyczaj określa kryteria kwalifikacji, oczekiwania dotyczące komunikacji i wydajności, wymagania dotyczące domowego biura oraz ograniczenia lokalizacji. Należy zazwyczaj zapoznać się z oficjalnym podręcznikiem HR lub dokumentami polityki w celu uzyskania szczegółów.",
-            "tokens": 43,
-            "latencyMs": 450,
-            "costUsd": 0.00043
+            "text": "Polityka pracy zdalnej różni się między firmami, ale zazwyczaj obejmuje:\n- Kwalifikacje pracowników (staż, typ stanowiska, zgoda managera)\n- Wymagania techniczne (stabilny internet, odpowiednie miejsce pracy)\n- Godziny dostępności i oczekiwania komunikacyjne\n- Zasady dotyczące bezpieczeństwa danych\n- Możliwe ograniczenia geograficzne\n\nRekomenduje się sprawdzić konkretną politykę w podręczniku pracownika lub skonsultować z działem HR, ponieważ szczegóły mogą się znacznie różnić.",
+            "tokens": 48,
+            "latencyMs": 420,
+            "costUsd": 0.00048
           },
           "reasoning": {
-            "text": "Aby określić politykę pracy zdalnej:\n1.  **Zakres:** Polityka dotyczy pracowników pełnoetatowych.\n2.  **Kwalifikacje:** Wymaga zgody menedżera i odpowiedniości stanowiska (zdefiniowana lista).\n3.  **Wymagania:** Należy zachować podstawowe godziny pracy (10:00-16:00 czasu lokalnego), bezpieczny internet, dedykowane miejsce pracy.\n4.  **Lokalizacja:** Należy przebywać w zatwierdzonych krajach/stanach.\n**Podsumowanie:** Uprawnieni pracownicy mogą pracować zdalnie za zgodą menedżera, z zastrzeżeniem określonego stanowiska, konfiguracji i wymagań lokalizacyjnych.",
-            "tokens": 75,
-            "latencyMs": 680,
-            "costUsd": 0.00070,
+            "text": "Strukturyzując typową politykę pracy zdalnej:\n\n**1. Kwalifikacje pracowników:**\n- Pracownicy pełnoetatowi po okresie próbnym (zazwyczaj 3-6 miesięcy)\n- Stanowiska umożliwiające pracę zdalną (biurowe, IT, niewymagające fizycznej obecności)\n- Pozytywna ocena roczna i zgoda bezpośredniego przełożonego\n- Możliwy wymóg minimalnego stażu w firmie\n\n**2. Wymagania techniczne i organizacyjne:**\n- Stabilne łącze internetowe (min. 25-50 Mbps)\n- Dedykowane miejsce pracy spełniające normy BHP\n- Obowiązkowe godziny dostępności (np. core hours 10:00-15:00)\n- Narzędzia komunikacji: VPN, Teams/Slack, dostęp do systemów firmowych\n\n**3. Bezpieczeństwo i compliance:**\n- Protokoły bezpieczeństwa danych (szyfrowanie, VPN obowiązkowy)\n- RODO i ochrona danych klientów\n- Zakaz pracy w przestrzeniach publicznych (kawiarnie, coworking bez zgody)\n\n**4. Lokalizacja:**\n- Ograniczenia geograficzne ze względów podatkowych i prawnych\n- Typowo: kraj siedziby firmy lub zatwierdzone lokalizacje w UE\n- Praca spoza UE wymaga specjalnych procedur\n\n**5. Proces aplikacji:**\n- Wniosek pracownika → analiza managera → akceptacja HR → setup IT → okres próbny\n\n**Konkluzja:** Polityka balansuje między elastycznością dla pracownika a wymogami bezpieczeństwa, compliance i operacyjnymi firmy.",
+            "tokens": 168,
+            "latencyMs": 850,
+            "costUsd": 0.00168,
             "reasoningTrace": [
-              "Cel: Określić politykę pracy zdalnej firmy",
-              "Źródło informacji: Zakładaj dostęp do wewnętrznych zasad/logiki HR.",
-              "Krok 1: Określ, do kogo odnosi się polityka (np. typy pracowników).",
-              "Krok 2: Określ kryteria kwalifikacji (np. typ stanowiska, zgoda menedżera).",
-              "Krok 3: Zidentyfikuj wymagania operacyjne (np. godziny, sprzęt, łączność).",
-              "Krok 4: Sprawdź ograniczenia (np. ograniczenia geograficzne).",
-              "Krok 5: Zsyntetyzuj odkrycia w uporządkowane podsumowanie polityki."
+              "Cel: Zdefiniować typową strukturę polityki pracy zdalnej firmy",
+              "Krok 1: Zidentyfikować główne komponenty polityki - Kwalifikacje, Wymagania, Bezpieczeństwo, Lokalizacja, Proces",
+              "Krok 2: Kwalifikacje - rozłożyć na: typ umowy, rodzaj stanowiska, performance, staż, zgody",
+              "Krok 3: Wymagania tech/org - określić minimalne parametry: internet, miejsce pracy, core hours, narzędzia",
+              "Krok 4: Bezpieczeństwo - uwzględnić wymogi RODO, ochrony danych, protokoły dostępu",
+              "Krok 5: Lokalizacja - wyjaśnić ograniczenia geograficzne (podatki, prawo pracy, compliance)",
+              "Krok 6: Proces - zdefiniować przepływ od wniosku do akceptacji",
+              "Krok 7: Synteza - połączyć wszystkie elementy w spójną politykę balansującą elastyczność i ryzyka"
             ]
           },
           "rag": {
-            "text": "Sprawdzam oficjalne dokumenty HR:\nPolityka pracy zdalnej [Dok: HRManual-Sec4.B] stwierdza, że kwalifikacja wymaga zgody menedżera i odpowiedniości stanowiska. Pracownicy muszą utrzymywać wyznaczone miejsce pracy i przestrzegać protokołów bezpieczeństwa określonych w [Dok: RemoteGuide-v3]. Pełne szczegóły znajdują się w Podręczniku HR.",
-            "tokens": 55,
-            "latencyMs": 750,
-            "costUsd": 0.00075,
+            "text": "Przeszukuję oficjalne dokumenty HR w bazie wiedzy...\n\n**Znaleziono 3 dokumenty:**\n\n**[HRManual-Sec4.B]** - Polityka pracy zdalnej:\n- Kwalifikacje: pełny etat, min. **6 miesięcy stażu**, zgoda managera\n- Stanowiska kwalifikujące się: IT (100%), Marketing (95%), Finanse (80%), HR (90%)\n- Proces: formularz WFH-01 → akceptacja managera (3 dni) → IT setup (5 dni)\n\n**[RemoteGuide-v3]** - Wymagania techniczne:\n- Internet: min. **50/10 Mbps** (weryfikowane przez IT)\n- VPN: **Cisco AnyConnect** (obowiązkowy)\n- Core hours: **10:00-16:00 CET** (obowiązkowa dostępność)\n- Sprzęt: laptop + monitor firmowy (dostarcza IT)\n\n**[CompliancePolicy-v2.1]** - Restrykcje lokalizacyjne:\n- Dozwolone bez zgody: **PL, DE, NL, CZ**\n- Inne kraje UE: wymaga zgody Legal (case-by-case)\n- Poza UE: **zabronione** (RODO, compliance)\n\nAktualna adopcja: **67% zespołu pracuje zdalnie** (dane Q4 2024)",
+            "tokens": 112,
+            "latencyMs": 850,
+            "costUsd": 0.00112,
             "citations": [
               {
-                "title": "Dokument wewnętrzny: HRManual-Sec4.B",
-                "snippet": "Sekcja 4.B: Polityka pracy zdalnej, w tym kwalifikacje, proces składania wniosków i obowiązki menedżera...",
+                "title": "Dokument wewnętrzny: HRManual-Sec4.B v2.3 (Polityka Pracy Zdalnej)",
+                "snippet": "...§4.B Polityka Work From Home. Kwalifikacje: (1) pracownicy pełnoetatowi z min. 6 mies. stażu, (2) pozytywna ocena roczna min. 'spełnia oczekiwania', (3) zgoda bezpośredniego managera. Stanowiska: IT 100%, Marketing 95%, Finanse 80%, HR 90% zespołu kwalifikuje się. Proces: WFH-01 form → manager approval (SLA 3 dni) → IT setup...",
                 "url": "#"
               },
               {
-                "title": "Dokument wewnętrzny: RemoteGuide-v3",
-                "snippet": "Wersja 3 Wytycznych pracy zdalnej, szczegółowo opisująca wymagania dotyczące miejsca pracy, protokoły bezpieczeństwa i oczekiwania komunikacyjne...",
+                "title": "Dokument wewnętrzny: RemoteGuide-v3 (Wytyczne Pracy Zdalnej)",
+                "snippet": "...§3 Wymagania techniczne. Internet: minimum 50 Mbps download / 10 Mbps upload (IT przeprowadza test). VPN: obowiązkowe Cisco AnyConnect dla dostępu do zasobów firmowych. Core hours: 10:00-16:00 CET obowiązkowa dostępność + elastyczne 2h w oknie 7:00-20:00. Sprzęt: laptop Dell XPS/Lenovo ThinkPad + monitor 27\" (dostarcza dział IT w ciągu 5 dni roboczych)...",
+                "url": "#"
+              },
+              {
+                "title": "Dokument wewnętrzny: CompliancePolicy-v2.1 §4.2 (Lokalizacja)",
+                "snippet": "...§4.2 Geograficzne ograniczenia pracy zdalnej. Tier 1 (dozwolone bez dodatkowej zgody): Polska, Niemcy, Holandia, Czechy - weryfikacja podatkowa + payroll agreement. Tier 2 (wymaga Legal approval): pozostałe kraje UE/EOG, ocena case-by-case (podatki, insurance, labor law). Tier 3 (zabronione): poza UE ze względu na RODO Article 44-50, data transfer restrictions, compliance risks...",
                 "url": "#"
               }
             ]
