@@ -47,51 +47,121 @@
         main {
             flex-grow: 1; /* Allow main content to fill space */
         }
+        /* Language switcher styles */
+        .lang-btn {
+            transition: all 0.2s ease;
+        }
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+        }
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
 
-    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-md sticky top-0 z-10">
-        <div class="container mx-auto px-4 py-4">
-            <h1 class="text-3xl font-bold">Chatbot Paradigm Simulator</h1>
-            <p class="text-indigo-100 mt-1 text-sm">
-                Explore how different chatbot approaches tackle the same prompt.
-            </p>
+    <header class="bg-slate-900 text-white shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-light tracking-wide" data-i18n="title">Chatbot Paradigm Simulator</h1>
+                    <p class="text-slate-300 mt-1 text-sm font-light" data-i18n="subtitle">
+                        Explore how different chatbot approaches tackle the same prompt.
+                    </p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="switchLanguage('en')" class="lang-btn px-4 py-2 rounded-lg text-sm active" data-lang="en">EN</button>
+                    <button onclick="switchLanguage('es')" class="lang-btn px-4 py-2 rounded-lg text-sm" data-lang="es">ES</button>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="container mx-auto p-4 md:p-6 lg:p-8 flex flex-col items-center">
+    <main class="container mx-auto p-6 md:p-8 lg:p-12 flex flex-col items-center">
 
-        <p class="text-center text-gray-600 mb-6 max-w-3xl">
+        <p class="text-center text-gray-500 mb-8 max-w-3xl font-light text-base" data-i18n="description">
             Compare a standard Large Language Model (LLM), one using internal reasoning, and one using Retrieval-Augmented Generation (RAG) accessing a defined knowledge base (e.g., internal docs).
         </p>
 
-        <div class="w-full max-w-4xl flex flex-col gap-2 mb-6 bg-white p-5 rounded-lg shadow-md border border-gray-200">
-            <label for="promptSelect" class="text-sm font-medium text-gray-700">Select a Sample Prompt:</label>
-            <select id="promptSelect" class="p-2 rounded border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-150 ease-in-out"></select>
-            <div class="flex flex-col sm:flex-row gap-2 mt-2">
-                <input id="promptInput" class="flex-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-150 ease-in-out" placeholder="Or type your own question...">
-                <button id="sendBtn" class="bg-blue-600 text-white px-6 py-2 rounded font-semibold hover:bg-blue-700 active:bg-blue-800 transition-colors duration-200 shadow-sm flex items-center justify-center gap-2">
+        <div class="w-full max-w-4xl flex flex-col gap-3 mb-8 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <label for="promptSelect" class="text-sm font-medium text-gray-600" data-i18n="selectPrompt">Select a Sample Prompt:</label>
+            <select id="promptSelect" class="p-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-slate-400 focus:border-transparent transition duration-150 ease-in-out bg-white"></select>
+            <div class="flex flex-col sm:flex-row gap-3 mt-1">
+                <input id="promptInput" class="flex-1 p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-slate-400 focus:border-transparent transition duration-150 ease-in-out" data-i18n-placeholder="inputPlaceholder">
+                <button id="sendBtn" class="bg-slate-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-900 active:bg-black transition-colors duration-200 shadow-sm flex items-center justify-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                     </svg>
-                    Send
+                    <span data-i18n="sendBtn">Send</span>
                 </button>
             </div>
         </div>
 
-        <div id="alert" class="hidden text-red-700 mb-4 font-medium p-3 bg-red-100 border border-red-300 rounded w-full max-w-4xl text-sm"></div>
+        <div id="alert" class="hidden text-red-700 mb-6 font-medium p-4 bg-red-50 border border-red-200 rounded-lg w-full max-w-4xl text-sm"></div>
 
-        <div id="chatContainer" class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full max-w-6xl">
+        <div id="chatContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
             </div>
 
     </main>
 
-    <footer class="bg-gray-800 text-gray-300 text-center p-4 mt-8 shadow-inner">
-        <div class="container mx-auto text-sm">
-            &copy; 2024 Chatbot Simulator. All rights reserved.
+    <footer class="bg-slate-900 text-slate-400 text-center p-6 mt-12">
+        <div class="container mx-auto text-sm font-light">
+            <span data-i18n="copyright">&copy; 2024 Chatbot Simulator. All rights reserved.</span>
         </div>
     </footer>
+
+    <script id="translations" type="application/json">
+    {
+      "en": {
+        "title": "Chatbot Paradigm Simulator",
+        "subtitle": "Explore how different chatbot approaches tackle the same prompt.",
+        "description": "Compare a standard Large Language Model (LLM), one using internal reasoning, and one using Retrieval-Augmented Generation (RAG) accessing a defined knowledge base (e.g., internal docs).",
+        "selectPrompt": "Select a Sample Prompt:",
+        "inputPlaceholder": "Or type your own question...",
+        "sendBtn": "Send",
+        "copyright": "© 2024 Chatbot Simulator. All rights reserved.",
+        "selectOption": "-- Select a Sample Prompt --",
+        "llmLabel": "LLM Chat",
+        "llmDesc": "Generates text directly from its vast training data.",
+        "reasoningLabel": "Reasoning Chat",
+        "reasoningDesc": "Uses internal logical steps or planning before answering.",
+        "ragLabel": "RAG Chat",
+        "ragDesc": "Retrieves info from a defined knowledge base first.",
+        "reasoningSteps": "Reasoning Steps",
+        "references": "References",
+        "tokens": "Tokens",
+        "latency": "Latency",
+        "cost": "Est. Cost",
+        "alertEmpty": "Please enter a prompt or select a sample.",
+        "alertNotFound": "Prompt not found in samples - showing default response simulation."
+      },
+      "es": {
+        "title": "Simulador de Paradigmas de Chatbot",
+        "subtitle": "Explora cómo diferentes enfoques de chatbot abordan la misma pregunta.",
+        "description": "Compara un Modelo de Lenguaje Grande (LLM) estándar, uno que usa razonamiento interno y uno que usa Generación Aumentada por Recuperación (RAG) accediendo a una base de conocimiento definida (ej: documentos internos).",
+        "selectPrompt": "Selecciona una Pregunta de Ejemplo:",
+        "inputPlaceholder": "O escribe tu propia pregunta...",
+        "sendBtn": "Enviar",
+        "copyright": "© 2024 Simulador de Chatbot. Todos los derechos reservados.",
+        "selectOption": "-- Selecciona una Pregunta de Ejemplo --",
+        "llmLabel": "Chat LLM",
+        "llmDesc": "Genera texto directamente desde sus vastos datos de entrenamiento.",
+        "reasoningLabel": "Chat con Razonamiento",
+        "reasoningDesc": "Usa pasos lógicos internos o planificación antes de responder.",
+        "ragLabel": "Chat RAG",
+        "ragDesc": "Recupera información de una base de conocimiento definida primero.",
+        "reasoningSteps": "Pasos de Razonamiento",
+        "references": "Referencias",
+        "tokens": "Tokens",
+        "latency": "Latencia",
+        "cost": "Costo Est.",
+        "alertEmpty": "Por favor, introduce una pregunta o selecciona un ejemplo.",
+        "alertNotFound": "Pregunta no encontrada en ejemplos - mostrando simulación de respuesta predeterminada."
+      }
+    }
+    </script>
 
     <script id="questionData" type="application/json">
     {
@@ -232,6 +302,43 @@
     </script>
 
     <script>
+        // --- Language Management ---
+        let currentLang = 'en';
+        const translations = JSON.parse(document.getElementById('translations').textContent);
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            // Update active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update placeholder
+            const input = document.getElementById('promptInput');
+            if (input && translations[lang]['inputPlaceholder']) {
+                input.placeholder = translations[lang]['inputPlaceholder'];
+            }
+
+            // Refresh prompts dropdown
+            populatePrompts();
+
+            // Clear current results
+            chatContainer.innerHTML = '';
+            alertBox.classList.add('hidden');
+        }
+
         // --- DOM Element References ---
         // Get references to necessary HTML elements
         const qData = JSON.parse(document.getElementById('questionData').textContent); // Parse the corrected JSON
@@ -243,29 +350,31 @@
 
         // --- Paradigm Definitions with Icons and Descriptions ---
         // Define the different chatbot types to simulate
-        const paradigms = [
-            {
-                key: 'llm',
-                label: 'LLM Chat',
-                color: 'bg-white', // Background color class
-                iconSvg: `<svg class="inline-icon w-5 h-5 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V8.25a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 8.25v10.5A2.25 2.25 0 0 0 6.75 21H9" /></svg>`,
-                description: 'Generates text directly from its vast training data.'
-            },
-            {
-                key: 'reasoning',
-                label: 'Reasoning Chat',
-                color: 'bg-green-50',
-                iconSvg: `<svg class="inline-icon w-5 h-5 text-green-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.24-.438.613-.43.992a6.759 6.759 0 0 1 0 1.903c.008.378.137.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.6 6.6 0 0 1-.22.128c-.332.183-.582.495-.644.869l-.213 1.28c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.759 6.759 0 0 1 0-1.903c-.007-.378-.137-.75-.43-.99l-1.004-.828a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582.495.644-.869l.214-1.28Z" /></svg>`,
-                description: 'Uses internal logical steps or planning before answering.'
-            },
-            {
-                key: 'rag',
-                label: 'RAG Chat',
-                color: 'bg-blue-50',
-                iconSvg: `<svg class="inline-icon w-5 h-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6" /></svg>`,
-                description: 'Retrieves info from a defined knowledge base first.'
-            }
-        ];
+        function getParadigms() {
+            return [
+                {
+                    key: 'llm',
+                    labelKey: 'llmLabel',
+                    descKey: 'llmDesc',
+                    color: 'bg-white',
+                    iconSvg: `<svg class="inline-icon w-5 h-5 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V8.25a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 8.25v10.5A2.25 2.25 0 0 0 6.75 21H9" /></svg>`
+                },
+                {
+                    key: 'reasoning',
+                    labelKey: 'reasoningLabel',
+                    descKey: 'reasoningDesc',
+                    color: 'bg-green-50',
+                    iconSvg: `<svg class="inline-icon w-5 h-5 text-green-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.24-.438.613-.43.992a6.759 6.759 0 0 1 0 1.903c.008.378.137.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.6 6.6 0 0 1-.22.128c-.332.183-.582.495-.644.869l-.213 1.28c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.759 6.759 0 0 1 0-1.903c-.007-.378-.137-.75-.43-.99l-1.004-.828a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582.495.644-.869l.214-1.28Z" /></svg>`
+                },
+                {
+                    key: 'rag',
+                    labelKey: 'ragLabel',
+                    descKey: 'ragDesc',
+                    color: 'bg-blue-50',
+                    iconSvg: `<svg class="inline-icon w-5 h-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6" /></svg>`
+                }
+            ];
+        }
 
         // --- Function to Populate Sample Prompts Dropdown ---
         function populatePrompts() {
@@ -273,7 +382,7 @@
             promptSelect.innerHTML = '';
             // Create and add a placeholder option
             const placeholderOption = document.createElement('option');
-            placeholderOption.textContent = '-- Select a Sample Prompt --';
+            placeholderOption.textContent = translations[currentLang]['selectOption'];
             placeholderOption.value = ""; // Empty value for placeholder
             placeholderOption.disabled = true;
             placeholderOption.selected = true;
@@ -286,7 +395,6 @@
                 option.textContent = q.prompt; // Set the display text
                 promptSelect.appendChild(option);
             });
-            console.log("Prompts populated."); // Debug log
         }
 
 
@@ -294,13 +402,18 @@
         function createPane(paradigm) {
             const paneDiv = document.createElement('div');
             // Apply styling for the chat pane using Tailwind classes
-            paneDiv.className = `${paradigm.color} p-4 rounded-lg shadow-md flex flex-col border border-gray-200 min-h-[300px]`;
+            paneDiv.className = `${paradigm.color} p-5 rounded-xl shadow-sm flex flex-col border border-gray-100 min-h-[300px]`;
             // Set inner HTML structure for the pane (header, output area, metrics area)
+            const label = translations[currentLang][paradigm.labelKey];
+            const desc = translations[currentLang][paradigm.descKey];
             paneDiv.innerHTML = `
-                <div class="flex-shrink-0"> <h2 class="font-semibold mb-1 text-lg text-gray-800">${paradigm.iconSvg}${paradigm.label}</h2>
-                    <p class="text-xs text-gray-600 mb-3">${paradigm.description}</p>
+                <div class="flex-shrink-0">
+                    <h2 class="font-medium mb-1 text-lg text-gray-800">${paradigm.iconSvg}${label}</h2>
+                    <p class="text-xs text-gray-500 mb-4 font-light">${desc}</p>
                 </div>
-                <div class="flex-grow overflow-y-auto text-gray-700 leading-relaxed mb-2" data-output></div> <div class="flex-shrink-0 text-xs text-gray-500 mt-auto border-t border-gray-200 pt-2" data-metrics></div> `;
+                <div class="flex-grow overflow-y-auto text-gray-700 leading-relaxed mb-2" data-output></div>
+                <div class="flex-shrink-0 text-xs text-gray-500 mt-auto border-t border-gray-100 pt-3" data-metrics></div>
+            `;
             return paneDiv;
         }
 
@@ -366,12 +479,13 @@
 
             // Create details/summary element for accordion effect
             const details = document.createElement('details');
-            details.className = 'reasoning-details mt-3 text-sm border-t border-green-200 pt-2 bg-green-50 p-3 rounded'; // Styling
+            details.className = 'reasoning-details mt-4 text-sm border-t border-green-100 pt-3 bg-green-50 p-4 rounded-lg'; // Styling
             // Summary text with an icon
-            details.innerHTML = '<summary class="font-medium text-green-800 cursor-pointer text-base mb-1 flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>Reasoning Steps</summary>';
+            const reasoningText = translations[currentLang]['reasoningSteps'];
+            details.innerHTML = `<summary class="font-medium text-green-800 cursor-pointer text-sm mb-1 flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>${reasoningText}</summary>`;
             // Create ordered list for the steps
             const list = document.createElement('ol');
-            list.className = 'list-decimal list-inside text-green-900 mt-1 space-y-1 pl-2';
+            list.className = 'list-decimal list-inside text-green-900 mt-2 space-y-1 pl-2 font-light';
             trace.forEach(step => {
                 const item = document.createElement('li');
                 item.innerHTML = step.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Support bold markdown in steps
@@ -390,19 +504,20 @@
 
             // Create div for the citation section
             const citationDiv = document.createElement('div');
-            citationDiv.className = 'citation-section mt-3 space-y-2 text-xs border-t border-blue-200 pt-2 bg-blue-50 p-3 rounded'; // Styling
+            citationDiv.className = 'citation-section mt-4 space-y-2 text-xs border-t border-blue-100 pt-3 bg-blue-50 p-4 rounded-lg'; // Styling
             // Title with an icon
             const title = document.createElement('h4');
             title.className = 'font-medium text-blue-800 mb-2 text-sm flex items-center gap-1';
-            title.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>References';
+            const referencesText = translations[currentLang]['references'];
+            title.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>${referencesText}`;
             citationDiv.appendChild(title);
 
             // Add each citation as a paragraph
             citations.forEach(cit => {
                 const p = document.createElement('p');
-                p.className = 'text-blue-900';
+                p.className = 'text-blue-900 font-light';
                 // Format citation with title, snippet, and link
-                p.innerHTML = `<span class="font-semibold">${cit.title}:</span> "${cit.snippet}" <a href="${cit.url || '#'}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">[Link]</a>`;
+                p.innerHTML = `<span class="font-medium">${cit.title}:</span> "${cit.snippet}" <a href="${cit.url || '#'}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">[Link]</a>`;
                 citationDiv.appendChild(p);
             });
              // Insert the citation section before the metrics div
@@ -413,20 +528,22 @@
         // --- Function to Render Metrics ---
         function renderMetrics(metricsContainer, answerData) {
             // Display tokens, latency, and estimated cost
-            metricsContainer.textContent = `Tokens: ${answerData.tokens} | Latency: ${answerData.latencyMs} ms | Est. Cost: $${answerData.costUsd.toFixed(5)}`;
+            const tokensText = translations[currentLang]['tokens'];
+            const latencyText = translations[currentLang]['latency'];
+            const costText = translations[currentLang]['cost'];
+            metricsContainer.textContent = `${tokensText}: ${answerData.tokens} | ${latencyText}: ${answerData.latencyMs} ms | ${costText}: $${answerData.costUsd.toFixed(5)}`;
         }
 
         // --- Main Function to Handle Sending Prompt ---
         function send() {
-            console.log("Send function triggered."); // Debug log
             const promptText = promptInput.value.trim();
             // Check if prompt is empty
             if (!promptText) {
-                alertBox.textContent = 'Please enter a prompt or select a sample.';
+                alertBox.textContent = translations[currentLang]['alertEmpty'];
                 alertBox.classList.remove('hidden'); // Show alert
                 // Ensure alert is red for error
-                alertBox.classList.remove('bg-yellow-100', 'text-yellow-800', 'border-yellow-300');
-                alertBox.classList.add('bg-red-100', 'text-red-700', 'border-red-300');
+                alertBox.classList.remove('bg-yellow-50', 'text-yellow-800', 'border-yellow-200');
+                alertBox.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
                 return;
             }
 
@@ -446,14 +563,15 @@
 
             // Show informational alert if using the default answer set
             if (usingDefault) {
-                alertBox.textContent = 'Prompt not found in samples - showing default response simulation.';
+                alertBox.textContent = translations[currentLang]['alertNotFound'];
                 alertBox.classList.remove('hidden');
                 // Style alert as informational (yellow)
-                alertBox.classList.remove('bg-red-100', 'text-red-700', 'border-red-300');
-                alertBox.classList.add('bg-yellow-100', 'text-yellow-800', 'border-yellow-300');
+                alertBox.classList.remove('bg-red-50', 'text-red-700', 'border-red-200');
+                alertBox.classList.add('bg-yellow-50', 'text-yellow-800', 'border-yellow-200');
             }
 
             // Create and populate panes for each defined paradigm
+            const paradigms = getParadigms();
             paradigms.forEach(paradigm => {
                 const pane = createPane(paradigm); // Create the pane structure
                 chatContainer.appendChild(pane); // Add pane to the grid
